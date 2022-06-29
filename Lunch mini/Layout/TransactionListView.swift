@@ -23,7 +23,7 @@ struct TransactionsResponse: Codable {
 }
 
 //var apiUrl = "https://jsonplaceholder.typicode.com/posts/1/comments"
-var apiUrl = "https://dev.lunchmoney.app/v1/transactions"
+var apiUrl = "https://dev.lunchmoney.app/v1"
 
 class apiCall {
     @AppStorage("apiKey") var apiKey: String = ""
@@ -34,7 +34,7 @@ class apiCall {
     }
     
     func getTransactions(completion:@escaping (TransactionsResponse) -> ()) {
-        guard let url = URL(string: apiUrl) else { return }
+        guard let url = URL(string: "\(apiUrl)/transactions") else { return }
         
         var request = URLRequest(url: url)
         request.setValue( "Bearer \(apiKey)", forHTTPHeaderField: "Authorization")
