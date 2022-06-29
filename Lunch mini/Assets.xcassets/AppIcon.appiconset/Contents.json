@@ -31,13 +31,13 @@
       "size" : "40x40"
     },
     {
-      "filename" : "lm-mini-icon-120.png",
+      "filename" : "Icon-120.png",
       "idiom" : "iphone",
       "scale" : "2x",
       "size" : "60x60"
     },
     {
-      "filename" : "lm-mini-icon-180.png",
+      "filename" : "Icon-180.png",
       "idiom" : "iphone",
       "scale" : "3x",
       "size" : "60x60"
@@ -73,13 +73,13 @@
       "size" : "40x40"
     },
     {
-      "filename" : "lm-mini-icon-76.png",
+      "filename" : "Icon-76.png",
       "idiom" : "ipad",
       "scale" : "1x",
       "size" : "76x76"
     },
     {
-      "filename" : "lm-mini-icon-152.png",
+      "filename" : "Icon-152.png",
       "idiom" : "ipad",
       "scale" : "2x",
       "size" : "76x76"
@@ -90,7 +90,7 @@
       "size" : "83.5x83.5"
     },
     {
-      "filename" : "lm-mini-icon-1024.png",
+      "filename" : "Icon-1024.png",
       "idiom" : "ios-marketing",
       "scale" : "1x",
       "size" : "1024x1024"

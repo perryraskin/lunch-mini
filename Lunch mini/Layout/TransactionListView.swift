@@ -34,15 +34,13 @@ class apiCall {
     }
     
     func getTransactions(completion:@escaping (TransactionsResponse) -> ()) {
-        guard let url = URL(string: "\(apiUrl)/transactions") else { return }
+        guard let urlCat = URL(string: "\(apiUrl)/categories") else { return }
+        var requestCat = URLRequest(url: urlCat)
+        requestCat.setValue( "Bearer \(apiKey)", forHTTPHeaderField: "Authorization")
         
+        guard let url = URL(string: "\(apiUrl)/transactions") else { return }
         var request = URLRequest(url: url)
         request.setValue( "Bearer \(apiKey)", forHTTPHeaderField: "Authorization")
-        
-        let dateFormatter = DateFormatter()
-          dateFormatter.locale = Locale(identifier: "en_US_POSIX") // set locale to reliable US_POSIX
-          dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
-//          let date = dateFormatter.date(from:isoDate)!
         
         URLSession.shared.dataTask(with: request) { (data, response, error) in
             guard let res = try? JSONDecoder().decode(TransactionsResponse.self, from: data!)
@@ -52,27 +50,9 @@ class apiCall {
             }
 //            print(res.transactions)
             
-//            var updatedTransactions : [Transaction]
-//            for t in res.transactions {
-//                var transaction = t
-//                t.date =
-//            }
-
-//            var sortedTransactions = res.transactions.sorted(by: $0. > $1.date)
             DispatchQueue.main.async {
-                
-//                let date = dateFormatter.date(from:isoDate)!
-                
                 completion(res)
             }
-            
-//            guard let data = data, error == nil else {
-//                    print(error?.localizedDescription ?? "No data")
-//                    return
-//                }
-//                let responseJSON = try? JSONSerialization.jsonObject(with: data, options: [])
-//                if let responseJSON = responseJSON as? [String: Any] {
-//                    print(responseJSON)
 //                }
         }
         .resume()
