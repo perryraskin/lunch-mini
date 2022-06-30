@@ -3,7 +3,7 @@ A mobile companion app for @lunch-money
 
 ### Completed features:
 
-- Submit your Lunch Money developer API key
+- Submit your Lunch Money developer API key (on-device only using [@AppStorage](https://developer.apple.com/documentation/swiftui/appstorage))
 - View a list of this month's transactions sorted by date descending
 
 ### In-progress features:
