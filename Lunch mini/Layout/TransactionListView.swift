@@ -23,13 +23,20 @@ struct TransactionListView: View {
                         .font(.title3)
                         .bold()
                     if transaction.amountFloat ?? 0 < 0 {
-                        Text(transaction.amount)
+                        Text("$")
+                            .font(.subheadline)
+                            .bold()
+                            .foregroundColor(.green)
+                        + Text(transaction.amount.dropFirst().dropLast().dropLast())
                             .font(.subheadline)
                             .bold()
                             .foregroundColor(.green)
                     }
                     else {
-                        Text(transaction.amount)
+                        Text("$")
+                            .font(.subheadline)
+                            .bold()
+                        + Text(transaction.amount.dropLast().dropLast())
                             .font(.subheadline)
                             .bold()
                     }
