@@ -92,7 +92,8 @@ struct TransactionListView: View {
             
             print("Found \(updatedTransactions.count) transactions!")
             self.transactions = updatedTransactions
-                .sorted(by: { $0.date.compare($1.date) == .orderedDescending })
+//                .sorted(by: { $0.date.compare($1.date) == .orderedDescending })
+                .reversed()
                 .filter { $0.category_id != 348205 }
         } catch let error { /// The `let error` part is optional
             print(error)
