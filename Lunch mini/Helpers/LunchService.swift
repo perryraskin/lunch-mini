@@ -26,6 +26,7 @@ struct Transaction: Codable, Identifiable {
     let date: String
     let category_id: Int
     var category_name: String?
+    var amountFloat: Float?
 }
 
 struct TransactionsResponse: Codable {
