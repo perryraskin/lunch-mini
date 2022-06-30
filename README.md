@@ -18,4 +18,4 @@ A mobile companion app for [@lunch-money](https://www.github.com/lunch-money)! S
 
 ### Screenshots:
 
-![lunch-mini-screenshots-1](https://user-images.githubusercontent.com/17967465/176582065-2f111cf6-f253-4892-b828-d9197e70b02b.jpg)
+![lunch-mini-screenshots-1](https://user-images.githubusercontent.com/17967465/176724787-bfea45d5-93e4-49f4-ab91-99261a60b8aa.jpg)
