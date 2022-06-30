@@ -27,6 +27,7 @@ struct Transaction: Codable, Identifiable {
     let date: String
     let category_id: Int
     var category_name: String?
+    var amountFloat: Float?
 }
 
 struct TransactionsResponse: Codable {
@@ -98,6 +99,7 @@ class apiCall {
                         let category = categories.first { $0.id == t.category_id }
 
                         adjustedT.category_name = category?.name ?? "Uncategorized"
+                        adjustedT.amountFloat = Float(t.amount)
                         updatedTransactionsRes.transactions.append(adjustedT)
                     }
                     print("Found \(updatedTransactionsRes.transactions.count) transactions!")
@@ -123,9 +125,17 @@ struct ContactListView: View {
                     Text(transaction.original_name)
                         .font(.title3)
                         .fontWeight(.bold)
-                    Text(transaction.amount)
-                        .font(.subheadline)
-                        .fontWeight(.bold)
+                    if transaction.amountFloat ?? 0 < 0 {
+                        Text(transaction.amount)
+                            .font(.subheadline)
+                            .fontWeight(.bold)
+                            .foregroundColor(.green)
+                    }
+                    else {
+                        Text(transaction.amount)
+                            .font(.subheadline)
+                            .fontWeight(.bold)
+                    }
                     Text(transaction.date)
                         .font(.body)
                     Text(transaction.category_name ?? "Uncategorized")
