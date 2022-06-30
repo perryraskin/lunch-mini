@@ -72,6 +72,7 @@ class apiCall {
     }
     
     func getTransactions(completion:@escaping (TransactionsResponse) -> ()) {
+        print("Getting transactions...")
         guard let url = URL(string: "\(apiUrl)/transactions") else { return }
         
         var request = URLRequest(url: url)
@@ -99,6 +100,7 @@ class apiCall {
                         adjustedT.category_name = category?.name ?? "Uncategorized"
                         updatedTransactionsRes.transactions.append(adjustedT)
                     }
+                    print("Found \(updatedTransactionsRes.transactions.count) transactions!")
                     completion(updatedTransactionsRes)
                 }
             }
@@ -143,6 +145,14 @@ struct ContactListView: View {
                 }
 //                apiCall().printApiKey()
             }.navigationTitle("Transactions")
+                .refreshable {
+                    apiCall().getTransactions { (res) in
+                        self.transactions = res.transactions
+                        self.transactions = self.transactions
+                            .sorted(by: { $0.date.compare($1.date) == .orderedDescending })
+                            .filter { $0.category_id != 348205 }
+                    }
+                }
         }
 //        return VStack {
 //            List(contactList.contacts, id: \.id) { contact in
