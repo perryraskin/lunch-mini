@@ -11,6 +11,7 @@ import SwiftUI
 
 struct TransactionListView: View {
     @State var transactions = [Transaction]()
+    @State var categories = [Category]()
     @StateObject var lunchService = LunchService()
 //    @StateObject var contactsService = ContactsService()
 
@@ -64,10 +65,30 @@ struct TransactionListView: View {
         }
     }
 
+    func getCategories() async {
+        do {
+            let categoriesResponse: CategoriesResponse = try await lunchService.get("categories")
+            self.categories = categoriesResponse.categories
+        } catch let error { /// The `let error` part is optional
+            print(error)
+        }
+    }
+    
     func getTransactions() async {
+        await getCategories()
         do {
             let transactionsResponse: TransactionsResponse = try await lunchService.get("transactions")
-            self.transactions = transactionsResponse.transactions
+            var updatedTransactions = [Transaction]()
+            // set category name for each transaction
+            for t in transactionsResponse.transactions {
+                var adjustedT = t
+                let category = categories.first { $0.id == t.category_id }
+
+                adjustedT.category_name = category?.name ?? "Uncategorized"
+                adjustedT.amountFloat = Float(t.amount)
+                updatedTransactions.append(adjustedT)
+            }
+            self.transactions = updatedTransactions
                 .sorted(by: { $0.date.compare($1.date) == .orderedDescending })
                 .filter { $0.category_id != 348205 }
         } catch let error { /// The `let error` part is optional
