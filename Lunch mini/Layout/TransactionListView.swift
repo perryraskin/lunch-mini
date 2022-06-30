@@ -37,7 +37,7 @@ struct TransactionListView: View {
                     Text(transaction.category_name ?? "Uncategorized")
                         .font(.headline)
                         .padding(4)
-                        .background(Color.blue.opacity(0.5))
+                        .background(RoundedRectangle(cornerRadius: 5, style: .continuous).fill(Color.blue.opacity(0.5)))
                         .foregroundColor(.white)
                 }
             }
