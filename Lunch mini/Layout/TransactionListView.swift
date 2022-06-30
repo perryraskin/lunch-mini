@@ -9,6 +9,16 @@
 import Combine
 import SwiftUI
 
+struct Category: Codable, Identifiable {
+    let id: Int
+    let name: String
+    let description: String?
+}
+
+struct CategoriesResponse: Codable {
+    let categories: [Category]
+}
+
 struct Transaction: Codable, Identifiable {
     let id: Int
     let original_name: String
@@ -16,43 +26,84 @@ struct Transaction: Codable, Identifiable {
     let payee: String
     let date: String
     let category_id: Int
+    var category_name: String?
 }
 
 struct TransactionsResponse: Codable {
-    let transactions: [Transaction]
+    var transactions: [Transaction] = []
 }
 
 //var apiUrl = "https://jsonplaceholder.typicode.com/posts/1/comments"
 var apiUrl = "https://dev.lunchmoney.app/v1"
 
 class apiCall {
+    @State var categories: [Category] = []
     @AppStorage("apiKey") var apiKey: String = ""
     
-    func printApiKey() {
-        print("API KEY:")
-        print(apiKey)
+    init() {
+//        print("API KEY:")
+//        print(apiKey)
+//        self.getCategories { (categoriesRes) in
+//            self.categories = categoriesRes.categories
+//        }
     }
     
-    func getTransactions(completion:@escaping (TransactionsResponse) -> ()) {
-        guard let urlCat = URL(string: "\(apiUrl)/categories") else { return }
-        var requestCat = URLRequest(url: urlCat)
-        requestCat.setValue( "Bearer \(apiKey)", forHTTPHeaderField: "Authorization")
+    func getCategories(completion:@escaping (CategoriesResponse) -> ()) {
         
-        guard let url = URL(string: "\(apiUrl)/transactions") else { return }
+        guard let url = URL(string: "\(apiUrl)/categories") else { return }
         var request = URLRequest(url: url)
         request.setValue( "Bearer \(apiKey)", forHTTPHeaderField: "Authorization")
         
         URLSession.shared.dataTask(with: request) { (data, response, error) in
-            guard let res = try? JSONDecoder().decode(TransactionsResponse.self, from: data!)
+            guard let res = try? JSONDecoder().decode(CategoriesResponse.self, from: data!)
             else {
-                print("ERROR!")
+                print("CATEGORIES ERROR!")
+                print(error)
                 return
             }
-//            print(res.transactions)
+//            print(res.categories)
             
             DispatchQueue.main.async {
                 completion(res)
             }
+//                }
+        }
+        .resume()
+    }
+    
+    func getTransactions(completion:@escaping (TransactionsResponse) -> ()) {
+        guard let url = URL(string: "\(apiUrl)/transactions") else { return }
+        
+        var request = URLRequest(url: url)
+        request.setValue( "Bearer \(apiKey)", forHTTPHeaderField: "Authorization")
+        
+        URLSession.shared.dataTask(with: request) { (data, response, error) in
+            guard let transactionsRes = try? JSONDecoder().decode(TransactionsResponse.self, from: data!)
+            else {
+                print("ERROR!")
+                print(error)
+                return
+            }
+//            print(res.transactions)
+            
+            self.getCategories { (categoriesRes) in
+                let categories = categoriesRes.categories
+
+                DispatchQueue.main.async {
+                    var updatedTransactionsRes = TransactionsResponse()
+                    // set category name for each transaction
+                    for t in transactionsRes.transactions {
+                        var adjustedT = t
+                        let category = categories.first { $0.id == t.category_id }
+
+                        adjustedT.category_name = category?.name ?? "Uncategorized"
+                        updatedTransactionsRes.transactions.append(adjustedT)
+                    }
+                    completion(updatedTransactionsRes)
+                }
+            }
+            
+            
 //                }
         }
         .resume()
@@ -75,6 +126,11 @@ struct ContactListView: View {
                         .fontWeight(.bold)
                     Text(transaction.date)
                         .font(.body)
+                    Text(transaction.category_name ?? "Uncategorized")
+                        .padding(4)
+                        .background(Color.blue.opacity(0.5))
+                        .foregroundColor(.white)
+                        .font(.headline)
                 }
 
             }
