@@ -1,5 +1,5 @@
 # lunch-mini
-A mobile companion app for @lunch-money
+A mobile companion app for [@lunch-money](https://www.github.com/lunch-money)! Special thanks to [@EthanLipnik](https://www.github.com/EthanLipnik) for SwiftUI guidance 🙂.
 
 ### Completed features:
 
