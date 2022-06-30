@@ -5,6 +5,7 @@ A mobile companion app for @lunch-money
 
 - Submit your Lunch Money developer API key (on-device only using [@AppStorage](https://developer.apple.com/documentation/swiftui/appstorage))
 - View a list of this month's transactions sorted by date descending
+- Manual refresh
 
 ### In-progress features:
 
@@ -12,7 +13,6 @@ A mobile companion app for @lunch-money
 - Transaction detail page
 - Add rules for earned credit card points per transaction
 - Ability to add a new transaction
-- Manual refresh
 - Filtering/sorting by name, date, category
 - Minimal reports by category or otherwise
 
