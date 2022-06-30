@@ -10,11 +10,13 @@ import SwiftUI
 
 struct ListItem: View {
     var contact: Contact
-    
+
     var body: some View {
         HStack {
-            CircleImage(url: contact.image)
-            .frame(width: 40, height: 40)
+            AsyncImage(url: contact.image)
+                .clipShape(Circle())
+                .aspectRatio(1/1, contentMode: .fit)
+                .frame(width: 40, height: 40)
             Text(contact.name)
             Spacer()
         }.padding()
@@ -23,7 +25,6 @@ struct ListItem: View {
 
 struct ListItem_Previews: PreviewProvider {
     static var previews: some View {
-        let contact = Contact(id: "1234", name: "Jane Doe", image: "https://i.pravatar.cc/150", phone: "(xx) xxxx-xxxx", email: "jane@email.com")
-        return ListItem(contact: contact)
+        return ListItem(contact: ContactDetailView_Previews.exampleContact)
     }
 }

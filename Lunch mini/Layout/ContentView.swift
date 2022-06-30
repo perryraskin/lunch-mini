@@ -9,32 +9,26 @@
 import SwiftUI
 
 struct ContentView: View {
-//    @State var saveApiKey = false
+    //    @State var saveApiKey = false
     @AppStorage("apiKey") var apiKey: String = ""
     @AppStorage("saveApiKey") var saveApiKey: Bool = false
-//    @UserDefaults("apiKey")
+    //    @UserDefaults("apiKey")
     var body: some View {
-        
+
         NavigationView {
-            VStack {
-                if saveApiKey && apiKey != "" {
-                    ContactListView()
-                        .navigationBarTitle(Text("Contacts"))
-                }
-                else {
-                    Form {
-                        TextField("API Key", text: $apiKey)
-//                        Text("Stored string: \(apiKey)")
-//                                  TextField(apiKey, text: $apiKey)
-                        Button("Submit") {
-                            apiKey = apiKey
-                            print(apiKey)
-                            saveApiKey = true
-                        }
+            if saveApiKey && apiKey != "" {
+                TransactionListView()
+            } else {
+                Form {
+                    TextField("API Key", text: $apiKey)
+                    //                        Text("Stored string: \(apiKey)")
+                    //                                  TextField(apiKey, text: $apiKey)
+                    Button("Submit") {
+                        apiKey = apiKey
+                        print(apiKey)
+                        saveApiKey = true
                     }
                 }
-                
-            
             }
         }
     }
