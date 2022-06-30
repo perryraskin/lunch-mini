@@ -77,6 +77,7 @@ struct TransactionListView: View {
     func getTransactions() async {
         await getCategories()
         do {
+            print("Getting transactions...")
             let transactionsResponse: TransactionsResponse = try await lunchService.get("transactions")
             var updatedTransactions = [Transaction]()
             // set category name for each transaction
@@ -88,6 +89,8 @@ struct TransactionListView: View {
                 adjustedT.amountFloat = Float(t.amount)
                 updatedTransactions.append(adjustedT)
             }
+            
+            print("Found \(updatedTransactions.count) transactions!")
             self.transactions = updatedTransactions
                 .sorted(by: { $0.date.compare($1.date) == .orderedDescending })
                 .filter { $0.category_id != 348205 }
