@@ -8,10 +8,10 @@
 
 import Foundation
 
-struct Contact: Hashable, Codable {
+struct Contact: Hashable, Codable, Identifiable {
     var id: String
     var name: String
-    var image: String
+    var image: URL
     var phone: String
     var email: String
 }

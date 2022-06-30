@@ -9,24 +9,21 @@
 /* Begin PBXBuildFile section */
 		4A96483024A7987C006753C5 /* TransactionListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A96482F24A7987C006753C5 /* TransactionListView.swift */; };
 		4A96483224A7A8B6006753C5 /* TransactionDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A96483124A7A8B6006753C5 /* TransactionDetailView.swift */; };
-		4A96483424A7C0A4006753C5 /* NetworkLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A96483324A7C0A4006753C5 /* NetworkLoader.swift */; };
-		4AA472E224A790760048F100 /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA472E124A790760048F100 /* ImageLoader.swift */; };
 		4ACBDEC924A55565002BEF4C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ACBDEC824A55565002BEF4C /* AppDelegate.swift */; };
 		4ACBDECB24A55565002BEF4C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ACBDECA24A55565002BEF4C /* SceneDelegate.swift */; };
 		4ACBDECD24A55565002BEF4C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ACBDECC24A55565002BEF4C /* ContentView.swift */; };
 		4ACBDECF24A55566002BEF4C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4ACBDECE24A55566002BEF4C /* Assets.xcassets */; };
 		4ACBDED224A55566002BEF4C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4ACBDED124A55566002BEF4C /* Preview Assets.xcassets */; };
 		4ACBDED524A55566002BEF4C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4ACBDED324A55566002BEF4C /* LaunchScreen.storyboard */; };
-		4ACBDEDD24A56456002BEF4C /* CircleImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ACBDEDC24A56456002BEF4C /* CircleImage.swift */; };
 		4ACBDEDF24A56713002BEF4C /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ACBDEDE24A56713002BEF4C /* Contact.swift */; };
 		4ACBDEE324A56BA9002BEF4C /* ListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ACBDEE224A56BA9002BEF4C /* ListItem.swift */; };
+		AAC20881286D41BD00FDCECC /* LunchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC20880286D41BD00FDCECC /* LunchService.swift */; };
+		AAC20883286D426900FDCECC /* ContactsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC20882286D426900FDCECC /* ContactsService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		4A96482F24A7987C006753C5 /* TransactionListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionListView.swift; sourceTree = "<group>"; };
 		4A96483124A7A8B6006753C5 /* TransactionDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionDetailView.swift; sourceTree = "<group>"; };
-		4A96483324A7C0A4006753C5 /* NetworkLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkLoader.swift; sourceTree = "<group>"; };
-		4AA472E124A790760048F100 /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
 		4ACBDEC524A55565002BEF4C /* Lunch mini.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Lunch mini.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4ACBDEC824A55565002BEF4C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4ACBDECA24A55565002BEF4C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -35,9 +32,10 @@
 		4ACBDED124A55566002BEF4C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		4ACBDED424A55566002BEF4C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4ACBDED624A55566002BEF4C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		4ACBDEDC24A56456002BEF4C /* CircleImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleImage.swift; sourceTree = "<group>"; };
 		4ACBDEDE24A56713002BEF4C /* Contact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
 		4ACBDEE224A56BA9002BEF4C /* ListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListItem.swift; sourceTree = "<group>"; };
+		AAC20880286D41BD00FDCECC /* LunchService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LunchService.swift; sourceTree = "<group>"; };
+		AAC20882286D426900FDCECC /* ContactsService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactsService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,8 +52,8 @@
 		4AA472E024A790640048F100 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				4AA472E124A790760048F100 /* ImageLoader.swift */,
-				4A96483324A7C0A4006753C5 /* NetworkLoader.swift */,
+				AAC20882286D426900FDCECC /* ContactsService.swift */,
+				AAC20880286D41BD00FDCECC /* LunchService.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -122,7 +120,6 @@
 		4ACBDEE124A56A1D002BEF4C /* Component */ = {
 			isa = PBXGroup;
 			children = (
-				4ACBDEDC24A56456002BEF4C /* CircleImage.swift */,
 				4ACBDEE224A56BA9002BEF4C /* ListItem.swift */,
 			);
 			path = Component;
@@ -199,15 +196,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AAC20881286D41BD00FDCECC /* LunchService.swift in Sources */,
 				4A96483024A7987C006753C5 /* TransactionListView.swift in Sources */,
+				AAC20883286D426900FDCECC /* ContactsService.swift in Sources */,
 				4ACBDEE324A56BA9002BEF4C /* ListItem.swift in Sources */,
 				4ACBDEC924A55565002BEF4C /* AppDelegate.swift in Sources */,
-				4A96483424A7C0A4006753C5 /* NetworkLoader.swift in Sources */,
 				4A96483224A7A8B6006753C5 /* TransactionDetailView.swift in Sources */,
-				4ACBDEDD24A56456002BEF4C /* CircleImage.swift in Sources */,
 				4ACBDEDF24A56713002BEF4C /* Contact.swift in Sources */,
 				4ACBDECB24A55565002BEF4C /* SceneDelegate.swift in Sources */,
-				4AA472E224A790760048F100 /* ImageLoader.swift in Sources */,
 				4ACBDECD24A55565002BEF4C /* ContentView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -348,7 +344,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Lunch Mini/Preview Content\"";
-				DEVELOPMENT_TEAM = 956T9YFK9F;
+				DEVELOPMENT_TEAM = B6QG723P8Z;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "Lunch Mini/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
@@ -369,7 +365,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Lunch Mini/Preview Content\"";
-				DEVELOPMENT_TEAM = 956T9YFK9F;
+				DEVELOPMENT_TEAM = B6QG723P8Z;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "Lunch Mini/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;

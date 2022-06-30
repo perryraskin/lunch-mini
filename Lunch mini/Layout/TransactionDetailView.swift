@@ -9,28 +9,22 @@
 import SwiftUI
 import Foundation
 
-
-
-
-
 struct ContactDetailView: View {
+    @Environment(\.openURL) var openUrl
     
-        
-    
-    var contact: Contact
-    
+    let contact: Contact
+
     var body: some View {
-        
-        
         VStack {
-            CircleImage(url: contact.image)
+            AsyncImage(url: contact.image)
+                .clipShape(Circle())
+                .aspectRatio(1/1, contentMode: .fit)
                 .frame(width: 100, height: 100)
 
             VStack(alignment: .leading) {
                 Text(contact.name)
                     .font(.title)
                     .foregroundColor(.primary)
-
 
                 Text(contact.email)
                     .font(.subheadline)
@@ -40,11 +34,11 @@ struct ContactDetailView: View {
                     let telephone = "tel://"
                     let formattedString = telephone + self.contact.phone
                     guard let url = URL(string: formattedString) else { return }
-                    UIApplication.shared.open(url)
+                    openUrl(url)
                 }) {
-                Text(contact.phone)
-                    .font(.subheadline)
-                    .foregroundColor(.blue)
+                    Text(contact.phone)
+                        .font(.subheadline)
+                        .foregroundColor(.blue)
                 }
             }
             Spacer()
@@ -53,8 +47,9 @@ struct ContactDetailView: View {
 }
 
 struct ContactDetailView_Previews: PreviewProvider {
+    static let exampleContact = Contact(id: "1234", name: "Perry Raskin", image: URL(string: "https://i.pravatar.cc/300")!, phone: "(xx) xxxx-xxxx", email: "perry@email.com")
+
     static var previews: some View {
-        let contact = Contact(id: "1234", name: "Perry Raskin", image: "https://i.pravatar.cc/300", phone: "(xx) xxxx-xxxx", email: "perry@email.com")
-        return ContactDetailView(contact: contact)
+        return ContactDetailView(contact: Self.exampleContact)
     }
 }
