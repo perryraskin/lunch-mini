@@ -21,8 +21,6 @@ struct ContentView: View {
             } else {
                 Form {
                     TextField("API Key", text: $apiKey)
-                    //                        Text("Stored string: \(apiKey)")
-                    //                                  TextField(apiKey, text: $apiKey)
                     Button("Submit") {
                         apiKey = apiKey
                         print(apiKey)
