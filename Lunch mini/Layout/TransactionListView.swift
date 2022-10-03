@@ -26,7 +26,6 @@ struct TransactionListView: View {
                     NavigationLink(destination: TransactionDetailView(transaction: transaction)) {
                         VStack(alignment: .leading) {
                             Text(transaction.original_name)
-                                .font(.title3)
                                 .bold()
                             if transaction.amountFloat ?? 0 < 0 {
                                 Text("💵 ") +
