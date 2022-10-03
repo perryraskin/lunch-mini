@@ -8,22 +8,6 @@
 
 import Foundation
 
-struct PlaidAccount: Codable, Identifiable {
-    let id: Int
-    let name: String
-    let type: String
-    let subtype: String
-    let mask: String
-    let institution_name: String
-    let status: String
-    let balance: String
-    let limit: Int
-}
-
-struct PlaidAccountsResponse: Codable {
-    let plaid_accounts: [PlaidAccount]
-}
-
 struct Category: Codable, Identifiable {
     let id: Int
     let name: String
@@ -43,8 +27,6 @@ struct Transaction: Codable, Identifiable {
     let category_id: Int
     var category_name: String?
     var amountFloat: Float?
-    let plaid_account_id: Int
-    var PlaidAccount: PlaidAccount?
 }
 
 struct TransactionsResponse: Codable {
@@ -72,15 +54,6 @@ class LunchService: ObservableObject {
     // This uses generics to simplify multiple functions
     func get<T: Decodable>(_ path: String) async throws -> T {
         let url = apiUrl.appendingPathComponent(path)
-        var request = URLRequest(url: url)
-        request.setValue("Bearer \(apiKey)", forHTTPHeaderField: "Authorization")
-
-        let data = try await URLSession.shared.data(for: request).0
-        return try JSONDecoder().decode(T.self, from: data)
-    }
-    
-    func getAccountTransactions<T: Decodable>(_ plaid_account_id: String) async throws -> T {
-        let url = URL(string: "https://dev.lunchmoney.app/v1/transactions?start_date=2022-07-01&end_date=2022-10-01&plaid_account_id=\(plaid_account_id)")!
         var request = URLRequest(url: url)
         request.setValue("Bearer \(apiKey)", forHTTPHeaderField: "Authorization")
 

@@ -10,6 +10,10 @@ import Combine
 import SwiftUI
 
 struct TransactionListView: View {
+    // This is specific to the category ID in my Lunch Money account
+    let payment_category_id = 348205
+    
+    @State var plaid_accounts = [PlaidAccount]()
     @State var transactions = [Transaction]()
     @State var categories = [Category]()
     @StateObject var lunchService = LunchService()
@@ -23,6 +27,7 @@ struct TransactionListView: View {
                         .font(.title3)
                         .bold()
                     if transaction.amountFloat ?? 0 < 0 {
+                        Text("💵 ") +
                         Text("$")
                             .font(.subheadline)
                             .bold()
@@ -33,6 +38,7 @@ struct TransactionListView: View {
                             .foregroundColor(.green)
                     }
                     else {
+                        Text("💵 ") +
                         Text("$")
                             .font(.subheadline)
                             .bold()
@@ -40,8 +46,12 @@ struct TransactionListView: View {
                             .font(.subheadline)
                             .bold()
                     }
+                    Text("🗓️ ") +
                     Text(transaction.date)
-                        .font(.body)
+                        .font(.subheadline)
+                    Text("💳 ") +
+                    Text(transaction.PlaidAccount?.mask ?? "")
+                        .font(.subheadline)
                     Text(transaction.category_name ?? "Uncategorized")
                         .font(.headline)
                         .padding(4)
@@ -50,10 +60,12 @@ struct TransactionListView: View {
                 }
             }
             .task {
+                await getPlaidAccounts()
                 await getTransactions()
             }
             .navigationTitle("Transactions")
             .refreshable {
+                await getPlaidAccounts()
                 await getTransactions()
             }
 
@@ -69,6 +81,15 @@ struct TransactionListView: View {
             //                    print(error)
             //                }
             //            }
+        }
+    }
+    
+    func getPlaidAccounts() async {
+        do {
+            let plaidAccountsResponse: PlaidAccountsResponse = try await lunchService.get("plaid_accounts")
+            self.plaid_accounts = plaidAccountsResponse.plaid_accounts
+        } catch let error { /// The `let error` part is optional
+            print(error)
         }
     }
 
@@ -89,11 +110,19 @@ struct TransactionListView: View {
             var updatedTransactions = [Transaction]()
             // set category name for each transaction
             for t in transactionsResponse.transactions {
+                // set category
                 var adjustedT = t
                 let category = categories.first { $0.id == t.category_id }
 
                 adjustedT.category_name = category?.name ?? "Uncategorized"
                 adjustedT.amountFloat = Float(t.amount)
+                
+                
+                // set plaid account
+                let plaid_account = plaid_accounts.first { $0.id == t.plaid_account_id }
+                adjustedT.PlaidAccount = plaid_account
+                
+                // add the updated transaction
                 updatedTransactions.append(adjustedT)
             }
             
@@ -101,7 +130,27 @@ struct TransactionListView: View {
             self.transactions = updatedTransactions
 //                .sorted(by: { $0.date.compare($1.date) == .orderedDescending })
                 .reversed()
-                .filter { $0.category_id != 348205 }
+                .filter { $0.category_id != payment_category_id }
+        } catch let error { /// The `let error` part is optional
+            print(error)
+        }
+    }
+    
+    func getTotalCardSpendings(plaid_account_id: String) async {
+        do {
+            print("Getting account transactions...")
+            let transactionsResponse: TransactionsResponse = try await lunchService.getAccountTransactions(plaid_account_id)
+            
+//            print(transactionsResponse)
+            var totalSpendings: Float = 0.00
+            for t in transactionsResponse.transactions {
+                if (t.category_id != payment_category_id) {
+                    totalSpendings = totalSpendings + Float(t.amount)!
+                }
+            }
+            let totalSpendingsFormatted = NumberFormatter.localizedString(from: totalSpendings as NSNumber, number: .currency)
+            print("Total spendings on card: \(totalSpendingsFormatted)")
+//            self.totalSpendings = totalSpendingsFormatted
         } catch let error { /// The `let error` part is optional
             print(error)
         }

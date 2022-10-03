@@ -17,9 +17,41 @@
 		4ACBDED524A55566002BEF4C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4ACBDED324A55566002BEF4C /* LaunchScreen.storyboard */; };
 		4ACBDEDF24A56713002BEF4C /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ACBDEDE24A56713002BEF4C /* Contact.swift */; };
 		4ACBDEE324A56BA9002BEF4C /* ListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ACBDEE224A56BA9002BEF4C /* ListItem.swift */; };
+		4F5CCE3B28A55953006C3031 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F5CCE2228A55792006C3031 /* WidgetKit.framework */; };
+		4F5CCE3C28A55953006C3031 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F5CCE2428A55792006C3031 /* SwiftUI.framework */; };
+		4F5CCE3F28A55953006C3031 /* BonusTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F5CCE3E28A55953006C3031 /* BonusTracker.swift */; };
+		4F5CCE4228A55954006C3031 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4F5CCE4128A55954006C3031 /* Assets.xcassets */; };
+		4F5CCE4428A55954006C3031 /* BonusTracker.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 4F5CCE4028A55953006C3031 /* BonusTracker.intentdefinition */; };
+		4F5CCE4528A55954006C3031 /* BonusTracker.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 4F5CCE4028A55953006C3031 /* BonusTracker.intentdefinition */; };
+		4F5CCE4828A55954006C3031 /* BonusTrackerExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 4F5CCE3A28A55953006C3031 /* BonusTrackerExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		4F5CCE5128A5602F006C3031 /* LunchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F5CCE5028A5602F006C3031 /* LunchService.swift */; };
 		AAC20881286D41BD00FDCECC /* LunchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC20880286D41BD00FDCECC /* LunchService.swift */; };
 		AAC20883286D426900FDCECC /* ContactsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC20882286D426900FDCECC /* ContactsService.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		4F5CCE4628A55954006C3031 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4ACBDEBD24A55565002BEF4C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4F5CCE3928A55953006C3031;
+			remoteInfo = BonusTrackerExtension;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		4F5CCE4C28A55954006C3031 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				4F5CCE4828A55954006C3031 /* BonusTrackerExtension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		4A96482F24A7987C006753C5 /* TransactionListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionListView.swift; sourceTree = "<group>"; };
@@ -34,6 +66,16 @@
 		4ACBDED624A55566002BEF4C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4ACBDEDE24A56713002BEF4C /* Contact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
 		4ACBDEE224A56BA9002BEF4C /* ListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListItem.swift; sourceTree = "<group>"; };
+		4F5CCE2228A55792006C3031 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		4F5CCE2428A55792006C3031 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		4F5CCE3A28A55953006C3031 /* BonusTrackerExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = BonusTrackerExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		4F5CCE3E28A55953006C3031 /* BonusTracker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BonusTracker.swift; sourceTree = "<group>"; };
+		4F5CCE4028A55953006C3031 /* BonusTracker.intentdefinition */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; path = BonusTracker.intentdefinition; sourceTree = "<group>"; };
+		4F5CCE4128A55954006C3031 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		4F5CCE4328A55954006C3031 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4F5CCE4D28A55BAB006C3031 /* Lunch mini.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Lunch mini.entitlements"; sourceTree = "<group>"; };
+		4F5CCE4E28A55C9D006C3031 /* BonusTrackerExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = BonusTrackerExtension.entitlements; sourceTree = "<group>"; };
+		4F5CCE5028A5602F006C3031 /* LunchService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LunchService.swift; sourceTree = "<group>"; };
 		AAC20880286D41BD00FDCECC /* LunchService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LunchService.swift; sourceTree = "<group>"; };
 		AAC20882286D426900FDCECC /* ContactsService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactsService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -43,6 +85,15 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4F5CCE3728A55953006C3031 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4F5CCE3C28A55953006C3031 /* SwiftUI.framework in Frameworks */,
+				4F5CCE3B28A55953006C3031 /* WidgetKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -71,7 +122,10 @@
 		4ACBDEBC24A55565002BEF4C = {
 			isa = PBXGroup;
 			children = (
+				4F5CCE4E28A55C9D006C3031 /* BonusTrackerExtension.entitlements */,
 				4ACBDEC724A55565002BEF4C /* Lunch mini */,
+				4F5CCE3D28A55953006C3031 /* BonusTracker */,
+				4F5CCE2128A55792006C3031 /* Frameworks */,
 				4ACBDEC624A55565002BEF4C /* Products */,
 			);
 			sourceTree = "<group>";
@@ -80,6 +134,7 @@
 			isa = PBXGroup;
 			children = (
 				4ACBDEC524A55565002BEF4C /* Lunch mini.app */,
+				4F5CCE3A28A55953006C3031 /* BonusTrackerExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -87,6 +142,7 @@
 		4ACBDEC724A55565002BEF4C /* Lunch mini */ = {
 			isa = PBXGroup;
 			children = (
+				4F5CCE4D28A55BAB006C3031 /* Lunch mini.entitlements */,
 				4AA472E324A796170048F100 /* Layout */,
 				4AA472E024A790640048F100 /* Helpers */,
 				4ACBDEC824A55565002BEF4C /* AppDelegate.swift */,
@@ -125,6 +181,35 @@
 			path = Component;
 			sourceTree = "<group>";
 		};
+		4F5CCE2128A55792006C3031 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4F5CCE2228A55792006C3031 /* WidgetKit.framework */,
+				4F5CCE2428A55792006C3031 /* SwiftUI.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		4F5CCE3D28A55953006C3031 /* BonusTracker */ = {
+			isa = PBXGroup;
+			children = (
+				4F5CCE4F28A56010006C3031 /* Helpers */,
+				4F5CCE3E28A55953006C3031 /* BonusTracker.swift */,
+				4F5CCE4028A55953006C3031 /* BonusTracker.intentdefinition */,
+				4F5CCE4128A55954006C3031 /* Assets.xcassets */,
+				4F5CCE4328A55954006C3031 /* Info.plist */,
+			);
+			path = BonusTracker;
+			sourceTree = "<group>";
+		};
+		4F5CCE4F28A56010006C3031 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				4F5CCE5028A5602F006C3031 /* LunchService.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -135,15 +220,34 @@
 				4ACBDEC124A55565002BEF4C /* Sources */,
 				4ACBDEC224A55565002BEF4C /* Frameworks */,
 				4ACBDEC324A55565002BEF4C /* Resources */,
+				4F5CCE4C28A55954006C3031 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				4F5CCE4728A55954006C3031 /* PBXTargetDependency */,
 			);
 			name = "Lunch mini";
 			productName = "Declarative UI";
 			productReference = 4ACBDEC524A55565002BEF4C /* Lunch mini.app */;
 			productType = "com.apple.product-type.application";
+		};
+		4F5CCE3928A55953006C3031 /* BonusTrackerExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4F5CCE4928A55954006C3031 /* Build configuration list for PBXNativeTarget "BonusTrackerExtension" */;
+			buildPhases = (
+				4F5CCE3628A55953006C3031 /* Sources */,
+				4F5CCE3728A55953006C3031 /* Frameworks */,
+				4F5CCE3828A55953006C3031 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = BonusTrackerExtension;
+			productName = BonusTrackerExtension;
+			productReference = 4F5CCE3A28A55953006C3031 /* BonusTrackerExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -151,12 +255,15 @@
 		4ACBDEBD24A55565002BEF4C /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1150;
+				LastSwiftUpdateCheck = 1340;
 				LastUpgradeCheck = 1340;
 				ORGANIZATIONNAME = "Perry Raskin";
 				TargetAttributes = {
 					4ACBDEC424A55565002BEF4C = {
 						CreatedOnToolsVersion = 11.5;
+					};
+					4F5CCE3928A55953006C3031 = {
+						CreatedOnToolsVersion = 13.4.1;
 					};
 				};
 			};
@@ -174,6 +281,7 @@
 			projectRoot = "";
 			targets = (
 				4ACBDEC424A55565002BEF4C /* Lunch mini */,
+				4F5CCE3928A55953006C3031 /* BonusTrackerExtension */,
 			);
 		};
 /* End PBXProject section */
@@ -189,6 +297,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		4F5CCE3828A55953006C3031 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4F5CCE4228A55954006C3031 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -197,6 +313,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AAC20881286D41BD00FDCECC /* LunchService.swift in Sources */,
+				4F5CCE4528A55954006C3031 /* BonusTracker.intentdefinition in Sources */,
 				4A96483024A7987C006753C5 /* TransactionListView.swift in Sources */,
 				AAC20883286D426900FDCECC /* ContactsService.swift in Sources */,
 				4ACBDEE324A56BA9002BEF4C /* ListItem.swift in Sources */,
@@ -208,7 +325,25 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		4F5CCE3628A55953006C3031 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4F5CCE3F28A55953006C3031 /* BonusTracker.swift in Sources */,
+				4F5CCE4428A55954006C3031 /* BonusTracker.intentdefinition in Sources */,
+				4F5CCE5128A5602F006C3031 /* LunchService.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		4F5CCE4728A55954006C3031 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4F5CCE3928A55953006C3031 /* BonusTrackerExtension */;
+			targetProxy = 4F5CCE4628A55954006C3031 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		4ACBDED324A55566002BEF4C /* LaunchScreen.storyboard */ = {
@@ -341,7 +476,9 @@
 		4ACBDEDA24A55566002BEF4C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "Lunch mini/Lunch mini.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Lunch Mini/Preview Content\"";
 				DEVELOPMENT_TEAM = 956T9YFK9F;
@@ -362,7 +499,9 @@
 		4ACBDEDB24A55566002BEF4C /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "Lunch mini/Lunch mini.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Lunch Mini/Preview Content\"";
 				DEVELOPMENT_TEAM = 956T9YFK9F;
@@ -375,6 +514,66 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.perryraskin.lunch-mini";
 				PRODUCT_NAME = "Lunch mini";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		4F5CCE4A28A55954006C3031 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CODE_SIGN_ENTITLEMENTS = BonusTrackerExtension.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 956T9YFK9F;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = BonusTracker/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = BonusTracker;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2022 Perry Raskin. All rights reserved.";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.perryraskin.lunch-mini.BonusTracker";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		4F5CCE4B28A55954006C3031 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CODE_SIGN_ENTITLEMENTS = BonusTrackerExtension.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 956T9YFK9F;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = BonusTracker/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = BonusTracker;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2022 Perry Raskin. All rights reserved.";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.perryraskin.lunch-mini.BonusTracker";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -397,6 +596,15 @@
 			buildConfigurations = (
 				4ACBDEDA24A55566002BEF4C /* Debug */,
 				4ACBDEDB24A55566002BEF4C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4F5CCE4928A55954006C3031 /* Build configuration list for PBXNativeTarget "BonusTrackerExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4F5CCE4A28A55954006C3031 /* Debug */,
+				4F5CCE4B28A55954006C3031 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
