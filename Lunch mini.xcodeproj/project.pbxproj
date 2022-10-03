@@ -15,7 +15,7 @@
 		4ACBDECF24A55566002BEF4C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4ACBDECE24A55566002BEF4C /* Assets.xcassets */; };
 		4ACBDED224A55566002BEF4C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4ACBDED124A55566002BEF4C /* Preview Assets.xcassets */; };
 		4ACBDED524A55566002BEF4C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4ACBDED324A55566002BEF4C /* LaunchScreen.storyboard */; };
-		4ACBDEDF24A56713002BEF4C /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ACBDEDE24A56713002BEF4C /* Contact.swift */; };
+		4ACBDEDF24A56713002BEF4C /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ACBDEDE24A56713002BEF4C /* Transaction.swift */; };
 		4ACBDEE324A56BA9002BEF4C /* ListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ACBDEE224A56BA9002BEF4C /* ListItem.swift */; };
 		4F5CCE3B28A55953006C3031 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F5CCE2228A55792006C3031 /* WidgetKit.framework */; };
 		4F5CCE3C28A55953006C3031 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F5CCE2428A55792006C3031 /* SwiftUI.framework */; };
@@ -64,7 +64,7 @@
 		4ACBDED124A55566002BEF4C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		4ACBDED424A55566002BEF4C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4ACBDED624A55566002BEF4C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		4ACBDEDE24A56713002BEF4C /* Contact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
+		4ACBDEDE24A56713002BEF4C /* Transaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
 		4ACBDEE224A56BA9002BEF4C /* ListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListItem.swift; sourceTree = "<group>"; };
 		4F5CCE2228A55792006C3031 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		4F5CCE2428A55792006C3031 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
@@ -168,7 +168,7 @@
 		4ACBDEE024A56757002BEF4C /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				4ACBDEDE24A56713002BEF4C /* Contact.swift */,
+				4ACBDEDE24A56713002BEF4C /* Transaction.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -319,7 +319,7 @@
 				4ACBDEE324A56BA9002BEF4C /* ListItem.swift in Sources */,
 				4ACBDEC924A55565002BEF4C /* AppDelegate.swift in Sources */,
 				4A96483224A7A8B6006753C5 /* TransactionDetailView.swift in Sources */,
-				4ACBDEDF24A56713002BEF4C /* Contact.swift in Sources */,
+				4ACBDEDF24A56713002BEF4C /* Transaction.swift in Sources */,
 				4ACBDECB24A55565002BEF4C /* SceneDelegate.swift in Sources */,
 				4ACBDECD24A55565002BEF4C /* ContentView.swift in Sources */,
 			);

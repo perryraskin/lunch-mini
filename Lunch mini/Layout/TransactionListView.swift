@@ -22,42 +22,45 @@ struct TransactionListView: View {
     var body: some View {
         VStack {
             List(transactions) { transaction in
-                VStack(alignment: .leading) {
-                    Text(transaction.original_name)
-                        .font(.title3)
-                        .bold()
-                    if transaction.amountFloat ?? 0 < 0 {
-                        Text("💵 ") +
-                        Text("$")
-                            .font(.subheadline)
+                NavigationLink(destination: TransactionDetailView(transaction: transaction)) {
+                    VStack(alignment: .leading) {
+                        Text(transaction.original_name)
+                            .font(.title3)
                             .bold()
-                            .foregroundColor(.green)
-                        + Text(transaction.amount.dropFirst().dropLast().dropLast())
+                        if transaction.amountFloat ?? 0 < 0 {
+                            Text("💵 ") +
+                            Text("$")
+                                .font(.subheadline)
+                                .bold()
+                                .foregroundColor(.green)
+                            + Text(transaction.amount.dropFirst().dropLast().dropLast())
+                                .font(.subheadline)
+                                .bold()
+                                .foregroundColor(.green)
+                        }
+                        else {
+                            Text("💵 ") +
+                            Text("$")
+                                .font(.subheadline)
+                                .bold()
+                            + Text(transaction.amount.dropLast().dropLast())
+                                .font(.subheadline)
+                                .bold()
+                        }
+                        Text("🗓️ ") +
+                        Text(transaction.date)
                             .font(.subheadline)
-                            .bold()
-                            .foregroundColor(.green)
+                        Text("💳 ") +
+                        Text(transaction.PlaidAccount?.mask ?? "")
+                            .font(.subheadline)
+                        Text(transaction.category_name ?? "Uncategorized")
+                            .font(.headline)
+                            .padding(4)
+                            .background(RoundedRectangle(cornerRadius: 5, style: .continuous).fill(Color.blue.opacity(0.5)))
+                            .foregroundColor(.white)
                     }
-                    else {
-                        Text("💵 ") +
-                        Text("$")
-                            .font(.subheadline)
-                            .bold()
-                        + Text(transaction.amount.dropLast().dropLast())
-                            .font(.subheadline)
-                            .bold()
-                    }
-                    Text("🗓️ ") +
-                    Text(transaction.date)
-                        .font(.subheadline)
-                    Text("💳 ") +
-                    Text(transaction.PlaidAccount?.mask ?? "")
-                        .font(.subheadline)
-                    Text(transaction.category_name ?? "Uncategorized")
-                        .font(.headline)
-                        .padding(4)
-                        .background(RoundedRectangle(cornerRadius: 5, style: .continuous).fill(Color.blue.opacity(0.5)))
-                        .foregroundColor(.white)
                 }
+                
             }
             .task {
                 await getPlaidAccounts()
