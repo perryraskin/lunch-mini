@@ -9,22 +9,22 @@
 import SwiftUI
 
 struct ListItem: View {
-    var contact: Contact
-
+//    var contact: Contact
+//
     var body: some View {
         HStack {
-            AsyncImage(url: contact.image)
-                .clipShape(Circle())
-                .aspectRatio(1/1, contentMode: .fit)
-                .frame(width: 40, height: 40)
-            Text(contact.name)
+//            AsyncImage(url: contact.image)
+//                .clipShape(Circle())
+//                .aspectRatio(1/1, contentMode: .fit)
+//                .frame(width: 40, height: 40)
+//            Text(contact.name)
             Spacer()
         }.padding()
     }
 }
 
-struct ListItem_Previews: PreviewProvider {
-    static var previews: some View {
-        return ListItem(contact: ContactDetailView_Previews.exampleContact)
-    }
-}
+//struct ListItem_Previews: PreviewProvider {
+//    static var previews: some View {
+//        return ListItem(contact: ContactDetailView_Previews.exampleContact)
+//    }
+//}
