@@ -13,19 +13,27 @@ struct ContentView: View {
     @AppStorage("apiKey") var apiKey: String = ""
     @AppStorage("saveApiKey") var saveApiKey: Bool = false
     //    @UserDefaults("apiKey")
+    
     var body: some View {
-
-        NavigationView {
-            if saveApiKey && apiKey != "" {
+        
+        if saveApiKey && apiKey != "" {
+            TabView {
                 TransactionListView()
-            } else {
-                Form {
-                    TextField("API Key", text: $apiKey)
-                    Button("Submit") {
-                        apiKey = apiKey
-                        print(apiKey)
-                        saveApiKey = true
-                    }
+                .tabItem {
+                    Label("Purchases", systemImage: "list.dash")
+                }
+                RulesView()
+                .tabItem {
+                    Label("Rules", systemImage: "slider.horizontal.2.rectangle.and.arrow.triangle.2.circlepath")
+                }
+            }
+        } else {
+            Form {
+                TextField("API Key", text: $apiKey)
+                Button("Submit") {
+                    apiKey = apiKey
+                    print(apiKey)
+                    saveApiKey = true
                 }
             }
         }

@@ -17,6 +17,7 @@
 		4ACBDED524A55566002BEF4C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4ACBDED324A55566002BEF4C /* LaunchScreen.storyboard */; };
 		4ACBDEDF24A56713002BEF4C /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ACBDEDE24A56713002BEF4C /* Transaction.swift */; };
 		4ACBDEE324A56BA9002BEF4C /* ListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ACBDEE224A56BA9002BEF4C /* ListItem.swift */; };
+		4F59188328EB90D4000B8F54 /* RulesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F59188228EB90D4000B8F54 /* RulesView.swift */; };
 		4F5CCE3B28A55953006C3031 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F5CCE2228A55792006C3031 /* WidgetKit.framework */; };
 		4F5CCE3C28A55953006C3031 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F5CCE2428A55792006C3031 /* SwiftUI.framework */; };
 		4F5CCE3F28A55953006C3031 /* BonusTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F5CCE3E28A55953006C3031 /* BonusTracker.swift */; };
@@ -66,6 +67,7 @@
 		4ACBDED624A55566002BEF4C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4ACBDEDE24A56713002BEF4C /* Transaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
 		4ACBDEE224A56BA9002BEF4C /* ListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListItem.swift; sourceTree = "<group>"; };
+		4F59188228EB90D4000B8F54 /* RulesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RulesView.swift; sourceTree = "<group>"; };
 		4F5CCE2228A55792006C3031 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		4F5CCE2428A55792006C3031 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
 		4F5CCE3A28A55953006C3031 /* BonusTrackerExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = BonusTrackerExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -115,6 +117,7 @@
 				4ACBDECC24A55565002BEF4C /* ContentView.swift */,
 				4A96482F24A7987C006753C5 /* TransactionListView.swift */,
 				4A96483124A7A8B6006753C5 /* TransactionDetailView.swift */,
+				4F59188228EB90D4000B8F54 /* RulesView.swift */,
 			);
 			path = Layout;
 			sourceTree = "<group>";
@@ -317,6 +320,7 @@
 				4A96483024A7987C006753C5 /* TransactionListView.swift in Sources */,
 				AAC20883286D426900FDCECC /* ContactsService.swift in Sources */,
 				4ACBDEE324A56BA9002BEF4C /* ListItem.swift in Sources */,
+				4F59188328EB90D4000B8F54 /* RulesView.swift in Sources */,
 				4ACBDEC924A55565002BEF4C /* AppDelegate.swift in Sources */,
 				4A96483224A7A8B6006753C5 /* TransactionDetailView.swift in Sources */,
 				4ACBDEDF24A56713002BEF4C /* Transaction.swift in Sources */,
