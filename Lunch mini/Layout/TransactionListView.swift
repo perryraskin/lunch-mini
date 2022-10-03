@@ -20,70 +20,59 @@ struct TransactionListView: View {
 //    @StateObject var contactsService = ContactsService()
 
     var body: some View {
-        VStack {
-            List(transactions) { transaction in
-                NavigationLink(destination: TransactionDetailView(transaction: transaction)) {
-                    VStack(alignment: .leading) {
-                        Text(transaction.original_name)
-                            .font(.title3)
-                            .bold()
-                        if transaction.amountFloat ?? 0 < 0 {
-                            Text("💵 ") +
-                            Text("$")
-                                .font(.subheadline)
+        NavigationView {
+            VStack {
+                List(transactions) { transaction in
+                    NavigationLink(destination: TransactionDetailView(transaction: transaction)) {
+                        VStack(alignment: .leading) {
+                            Text(transaction.original_name)
+                                .font(.title3)
                                 .bold()
-                                .foregroundColor(.green)
-                            + Text(transaction.amount.dropFirst().dropLast().dropLast())
+                            if transaction.amountFloat ?? 0 < 0 {
+                                Text("💵 ") +
+                                Text("$")
+                                    .font(.subheadline)
+                                    .bold()
+                                    .foregroundColor(.green)
+                                + Text(transaction.amount.dropFirst().dropLast().dropLast())
+                                    .font(.subheadline)
+                                    .bold()
+                                    .foregroundColor(.green)
+                            }
+                            else {
+                                Text("💵 ") +
+                                Text("$")
+                                    .font(.subheadline)
+                                    .bold()
+                                + Text(transaction.amount.dropLast().dropLast())
+                                    .font(.subheadline)
+                                    .bold()
+                            }
+                            Text("🗓️ ") +
+                            Text(transaction.date)
                                 .font(.subheadline)
-                                .bold()
-                                .foregroundColor(.green)
+                            Text("💳 ") +
+                            Text(transaction.PlaidAccount?.mask ?? "")
+                                .font(.subheadline)
+                            Text(transaction.category_name ?? "Uncategorized")
+                                .font(.headline)
+                                .padding(4)
+                                .background(RoundedRectangle(cornerRadius: 5, style: .continuous).fill(Color.blue.opacity(0.5)))
+                                .foregroundColor(.white)
                         }
-                        else {
-                            Text("💵 ") +
-                            Text("$")
-                                .font(.subheadline)
-                                .bold()
-                            + Text(transaction.amount.dropLast().dropLast())
-                                .font(.subheadline)
-                                .bold()
-                        }
-                        Text("🗓️ ") +
-                        Text(transaction.date)
-                            .font(.subheadline)
-                        Text("💳 ") +
-                        Text(transaction.PlaidAccount?.mask ?? "")
-                            .font(.subheadline)
-                        Text(transaction.category_name ?? "Uncategorized")
-                            .font(.headline)
-                            .padding(4)
-                            .background(RoundedRectangle(cornerRadius: 5, style: .continuous).fill(Color.blue.opacity(0.5)))
-                            .foregroundColor(.white)
                     }
+                    
                 }
-                
+                .task {
+                    await getPlaidAccounts()
+                    await getTransactions()
+                }
+                .refreshable {
+                    await getPlaidAccounts()
+                    await getTransactions()
+                }
             }
-            .task {
-                await getPlaidAccounts()
-                await getTransactions()
-            }
-            .navigationTitle("Transactions")
-            .refreshable {
-                await getPlaidAccounts()
-                await getTransactions()
-            }
-
-            //            List(contactsService.contactList.contacts) { contact in
-            //                NavigationLink(destination: ContactDetailView(contact: contact)) {
-            //                    ListItem(contact: contact)
-            //                }
-            //            }
-            //            .task {
-            //                do {
-            //                    try await contactsService.fetch()
-            //                } catch {
-            //                    print(error)
-            //                }
-            //            }
+            .navigationBarTitle("Purchases")
         }
     }
     
