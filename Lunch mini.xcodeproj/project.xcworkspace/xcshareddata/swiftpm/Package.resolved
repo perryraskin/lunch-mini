@@ -1,0 +1,32 @@
+{
+  "pins" : [
+    {
+      "identity" : "floatingtabbar",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/claudiaeng/FloatingTabBar",
+      "state" : {
+        "branch" : "master",
+        "revision" : "cefdc5ed390b66b74091e93b20ae2121c6abecb1"
+      }
+    },
+    {
+      "identity" : "popovers",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/aheze/Popovers",
+      "state" : {
+        "revision" : "de44c4dd7271ec6413fe350f7efadb14e5e18dce",
+        "version" : "1.3.2"
+      }
+    },
+    {
+      "identity" : "swiftui-fab",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/karamage/SwiftUI-FAB",
+      "state" : {
+        "revision" : "b11cb42d27ff29f7f98e8b774a857c63d37bfb6f",
+        "version" : "0.1.0"
+      }
+    }
+  ],
+  "version" : 2
+}
