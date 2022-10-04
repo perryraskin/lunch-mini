@@ -8,6 +8,8 @@
 
 import Combine
 import SwiftUI
+import SwiftUI_FAB
+import Popovers
 
 struct TransactionListView: View {
     // This is specific to the category ID in my Lunch Money account
@@ -18,7 +20,10 @@ struct TransactionListView: View {
     @State var categories = [Category]()
     @StateObject var lunchService = LunchService()
 //    @StateObject var contactsService = ContactsService()
-
+    
+    @State private var date = Date()
+    @State var showFilters = false
+    
     var body: some View {
         NavigationView {
             VStack {
@@ -70,9 +75,28 @@ struct TransactionListView: View {
                     await getPlaidAccounts()
                     await getTransactions()
                 }
+            
+                .floatingActionButton(
+                    color: Color.black,
+                    image: Image(systemName: "slider.horizontal.3").foregroundColor(.white)
+                ) {
+                    showFilters.toggle()
+                }
+                
+            }
+            .sheet(isPresented: $showFilters) {
+                if #available(iOS 16.0, *) {
+                    FiltersView()
+                        .presentationDetents([.medium, .large])
+                } else {
+                    // Fallback on earlier versions
+                }
             }
             .navigationBarTitle("Purchases")
+            
+            
         }
+        
     }
     
     func getPlaidAccounts() async {
@@ -152,4 +176,45 @@ struct ContactListView_Previews: PreviewProvider {
     static var previews: some View {
         TransactionListView()
     }
+}
+
+struct FiltersView: View {
+    let defaults = UserDefaults.standard
+    let now = Date()
+    let dateFormatter = DateFormatter()
+    
+    @AppStorage("dateFrom") var dateFrom: String = ""
+    @AppStorage("dateTo") var dateTo: String = ""
+    
+    @State var date_from = Date()
+    @State var date_to = Date()
+    
+    init() {
+        print(dateFrom)
+        print(dateTo)
+        dateFormatter.dateFormat = "MM/dd/yyyy"
+        self.date_from = dateFormatter.date(from: dateFrom) ?? Date()
+        self.date_to = dateFormatter.date(from: dateTo) ?? Date()
+    }
+    
+    var body: some View {
+        //      Text("Filters")
+        //          .font(.title3)
+        //          .bold()
+        //          .padding(.top)
+        
+        NavigationView {
+            List {
+                DatePicker("From", selection: $date_from, displayedComponents: .date)
+                    .onChange(of: date_from) { newValue in
+                        defaults.set(date_from, forKey: "dateFrom")
+                    }
+                DatePicker("To", selection: $date_to, displayedComponents: .date)
+                    .onChange(of: date_to) { newValue in
+                        defaults.set(date_to, forKey: "dateTo")
+                    }
+            } .navigationBarTitle("Filters").navigationBarTitleDisplayMode(.inline)
+        }
+    }
+    
 }

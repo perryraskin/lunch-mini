@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -18,6 +18,9 @@
 		4ACBDEDF24A56713002BEF4C /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ACBDEDE24A56713002BEF4C /* Transaction.swift */; };
 		4ACBDEE324A56BA9002BEF4C /* ListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ACBDEE224A56BA9002BEF4C /* ListItem.swift */; };
 		4F59188328EB90D4000B8F54 /* RulesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F59188228EB90D4000B8F54 /* RulesView.swift */; };
+		4F59188628EBB159000B8F54 /* FloatingTabBar in Frameworks */ = {isa = PBXBuildFile; productRef = 4F59188528EBB159000B8F54 /* FloatingTabBar */; };
+		4F59188928EBB875000B8F54 /* SwiftUI-FAB in Frameworks */ = {isa = PBXBuildFile; productRef = 4F59188828EBB875000B8F54 /* SwiftUI-FAB */; };
+		4F59188C28EBC00A000B8F54 /* Popovers in Frameworks */ = {isa = PBXBuildFile; productRef = 4F59188B28EBC00A000B8F54 /* Popovers */; };
 		4F5CCE3B28A55953006C3031 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F5CCE2228A55792006C3031 /* WidgetKit.framework */; };
 		4F5CCE3C28A55953006C3031 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F5CCE2428A55792006C3031 /* SwiftUI.framework */; };
 		4F5CCE3F28A55953006C3031 /* BonusTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F5CCE3E28A55953006C3031 /* BonusTracker.swift */; };
@@ -87,6 +90,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4F59188C28EBC00A000B8F54 /* Popovers in Frameworks */,
+				4F59188928EBB875000B8F54 /* SwiftUI-FAB in Frameworks */,
+				4F59188628EBB159000B8F54 /* FloatingTabBar in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -231,6 +237,11 @@
 				4F5CCE4728A55954006C3031 /* PBXTargetDependency */,
 			);
 			name = "Lunch mini";
+			packageProductDependencies = (
+				4F59188528EBB159000B8F54 /* FloatingTabBar */,
+				4F59188828EBB875000B8F54 /* SwiftUI-FAB */,
+				4F59188B28EBC00A000B8F54 /* Popovers */,
+			);
 			productName = "Declarative UI";
 			productReference = 4ACBDEC524A55565002BEF4C /* Lunch mini.app */;
 			productType = "com.apple.product-type.application";
@@ -279,6 +290,11 @@
 				Base,
 			);
 			mainGroup = 4ACBDEBC24A55565002BEF4C;
+			packageReferences = (
+				4F59188428EBB159000B8F54 /* XCRemoteSwiftPackageReference "FloatingTabBar" */,
+				4F59188728EBB875000B8F54 /* XCRemoteSwiftPackageReference "SwiftUI-FAB" */,
+				4F59188A28EBC00A000B8F54 /* XCRemoteSwiftPackageReference "Popovers" */,
+			);
 			productRefGroup = 4ACBDEC624A55565002BEF4C /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -614,6 +630,51 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		4F59188428EBB159000B8F54 /* XCRemoteSwiftPackageReference "FloatingTabBar" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/claudiaeng/FloatingTabBar";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+		4F59188728EBB875000B8F54 /* XCRemoteSwiftPackageReference "SwiftUI-FAB" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/karamage/SwiftUI-FAB";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.1.0;
+			};
+		};
+		4F59188A28EBC00A000B8F54 /* XCRemoteSwiftPackageReference "Popovers" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/aheze/Popovers";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		4F59188528EBB159000B8F54 /* FloatingTabBar */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4F59188428EBB159000B8F54 /* XCRemoteSwiftPackageReference "FloatingTabBar" */;
+			productName = FloatingTabBar;
+		};
+		4F59188828EBB875000B8F54 /* SwiftUI-FAB */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4F59188728EBB875000B8F54 /* XCRemoteSwiftPackageReference "SwiftUI-FAB" */;
+			productName = "SwiftUI-FAB";
+		};
+		4F59188B28EBC00A000B8F54 /* Popovers */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4F59188A28EBC00A000B8F54 /* XCRemoteSwiftPackageReference "Popovers" */;
+			productName = Popovers;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 4ACBDEBD24A55565002BEF4C /* Project object */;
 }
