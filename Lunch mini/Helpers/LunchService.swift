@@ -71,7 +71,9 @@ class LunchService: ObservableObject {
 
     // This uses generics to simplify multiple functions
     func get<T: Decodable>(_ path: String) async throws -> T {
-        let url = apiUrl.appendingPathComponent(path)
+//        let url = apiUrl.appendingPathComponent(path)
+        var urlString = "https://dev.lunchmoney.app/v1/" + path
+        let url = URL(string: urlString)!
         var request = URLRequest(url: url)
         request.setValue("Bearer \(apiKey)", forHTTPHeaderField: "Authorization")
 

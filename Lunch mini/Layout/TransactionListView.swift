@@ -10,6 +10,7 @@ import Combine
 import SwiftUI
 import SwiftUI_FAB
 import Popovers
+import SwiftDate
 
 struct TransactionListView: View {
     // This is specific to the category ID in my Lunch Money account
@@ -20,9 +21,22 @@ struct TransactionListView: View {
     @State var categories = [Category]()
     @StateObject var lunchService = LunchService()
 //    @StateObject var contactsService = ContactsService()
+   
+    let now = Date()
+    let default_date_from = Date().dateAt(.startOfMonth) + 4.hours
+    @State var default_date_from_str: String = ""
+    @State var default_date_to_str: String = ""
     
-    @State private var date = Date()
-    @State var showFilters = false
+    @State var showFilters: Bool = false
+    @State var filter = FilterItem(
+        date_from: Date().dateAt(.startOfMonth) + 4.hours,
+        date_to: Date()
+    )
+    
+    init() {
+        print(default_date_from)
+        print(Date())
+    }
     
     var body: some View {
         NavigationView {
@@ -69,11 +83,11 @@ struct TransactionListView: View {
                 }
                 .task {
                     await getPlaidAccounts()
-                    await getTransactions()
+                    await getTransactions(date_from: default_date_from_str, date_to: default_date_to_str)
                 }
                 .refreshable {
                     await getPlaidAccounts()
-                    await getTransactions()
+                    await getTransactions(date_from: default_date_from_str, date_to: default_date_to_str)
                 }
             
                 .floatingActionButton(
@@ -86,7 +100,7 @@ struct TransactionListView: View {
             }
             .sheet(isPresented: $showFilters) {
                 if #available(iOS 16.0, *) {
-                    FiltersView()
+                    FiltersView(showFiltersView: $showFilters, filter: $filter, refreshTransactions: getTransactions)
                         .presentationDetents([.medium, .large])
                 } else {
                     // Fallback on earlier versions
@@ -117,11 +131,23 @@ struct TransactionListView: View {
         }
     }
     
-    func getTransactions() async {
+    func getTransactions(date_from: String, date_to: String) async {
         await getCategories()
         do {
             print("Getting transactions...")
-            let transactionsResponse: TransactionsResponse = try await lunchService.get("transactions")
+            let from_month = default_date_from.month < 10 ? "0" + String(default_date_from.month) : String(default_date_from.month)
+            let from_day = default_date_from.day < 10 ? "0" + String(default_date_from.day) : String(default_date_from.day)
+            let to_month = now.month < 10 ? "0" + String(now.month) : String(now.month)
+            let to_day = now.day < 10 ? "0" + String(now.day) : String(now.day)
+            
+            let default_date_from_str = String(default_date_from.year) + "-" + from_month + "-" + from_day
+            let default_date_to_str = String(now.year) + "-" + to_month + "-" + to_day
+            var params = "?start_date=" + date_from + "&end_date=" + date_to
+            if (date_from == "") {
+                params = "?start_date=" + default_date_from_str + "&end_date=" + default_date_to_str
+            }
+            print(params)
+            let transactionsResponse: TransactionsResponse = try await lunchService.get("transactions" + params)
             var updatedTransactions = [Transaction]()
             // set category name for each transaction
             for t in transactionsResponse.transactions {
@@ -176,45 +202,4 @@ struct ContactListView_Previews: PreviewProvider {
     static var previews: some View {
         TransactionListView()
     }
-}
-
-struct FiltersView: View {
-    let defaults = UserDefaults.standard
-    let now = Date()
-    let dateFormatter = DateFormatter()
-    
-    @AppStorage("dateFrom") var dateFrom: String = ""
-    @AppStorage("dateTo") var dateTo: String = ""
-    
-    @State var date_from = Date()
-    @State var date_to = Date()
-    
-    init() {
-        print(dateFrom)
-        print(dateTo)
-        dateFormatter.dateFormat = "MM/dd/yyyy"
-        self.date_from = dateFormatter.date(from: dateFrom) ?? Date()
-        self.date_to = dateFormatter.date(from: dateTo) ?? Date()
-    }
-    
-    var body: some View {
-        //      Text("Filters")
-        //          .font(.title3)
-        //          .bold()
-        //          .padding(.top)
-        
-        NavigationView {
-            List {
-                DatePicker("From", selection: $date_from, displayedComponents: .date)
-                    .onChange(of: date_from) { newValue in
-                        defaults.set(date_from, forKey: "dateFrom")
-                    }
-                DatePicker("To", selection: $date_to, displayedComponents: .date)
-                    .onChange(of: date_to) { newValue in
-                        defaults.set(date_to, forKey: "dateTo")
-                    }
-            } .navigationBarTitle("Filters").navigationBarTitleDisplayMode(.inline)
-        }
-    }
-    
 }
